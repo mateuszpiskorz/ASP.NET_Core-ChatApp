@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ChatApp.Models
 {
-    public class ChatDbContext
+    public class ChatDbContext : DbContext
     {
+        public string ConnectionString { get; set; }
+        public ChatDbContext(string connectionString)
+        {
+            this.ConnectionString = connectionString;
+        }
+         
     }
 }
