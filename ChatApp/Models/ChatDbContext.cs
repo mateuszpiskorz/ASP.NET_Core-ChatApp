@@ -8,11 +8,18 @@ namespace ChatApp.Models
 {
     public class ChatDbContext : DbContext
     {
-        public string ConnectionString { get; set; }
-        public ChatDbContext(string connectionString)
+
+        public ChatDbContext()
         {
-            this.ConnectionString = connectionString;
+
         }
-         
+
+        public static ChatDbContext Create()
+        {
+            return new ChatDbContext();
+        }
+
+        public DbSet<User> Users { get; set; }
+
     }
 }
