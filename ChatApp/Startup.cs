@@ -29,7 +29,9 @@ namespace ChatApp
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddMvc();
+            services.AddDistributedMemoryCache();
             services.AddDbContext<ChatDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("UserDBConnectionString")));
         }
