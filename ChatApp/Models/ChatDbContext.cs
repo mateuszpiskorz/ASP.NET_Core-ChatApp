@@ -9,14 +9,9 @@ namespace ChatApp.Models
     public class ChatDbContext : DbContext
     {
 
-        public ChatDbContext()
+        public ChatDbContext(DbContextOptions<ChatDbContext> options):base(options)
         {
 
-        }
-
-        public static ChatDbContext Create()
-        {
-            return new ChatDbContext();
         }
 
         public DbSet<User> Users { get; set; }
