@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="AppData\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Chat\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
