@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChatApp.Helpers;
 using ChatApp.Models;
+using Newtonsoft.Json;
 
 namespace ChatApp.Controllers
 {
@@ -28,6 +29,23 @@ namespace ChatApp.Controllers
             ViewBag.currentUser = currentUser;
             return View();
 
+        }
+        public IActionResult ConversationWithContact(int contact)
+        {
+            if (SessionHelper.GetObjectFromJson<User>(HttpContext.Session, "user") == null)
+            {
+                return Json(new { status = "error", message = "User is not logged in" });
+            }
+            var currentUser = SessionHelper.GetObjectFromJson<User>(HttpContext.Session, "user");
+            var conversations = new List<Conversations>();
+
+            conversations = _context.Conversations.Where(c =>
+            (c.ReceiverId == currentUser.Id && c.SenderId == contact) ||
+            (c.ReceiverId == contact && c.SenderId == currentUser.Id))
+            .OrderBy(c => c.CreatedTime)
+            .ToList();
+
+            return Json(new { status = "sucess", data = conversations });
         }
     }
 }

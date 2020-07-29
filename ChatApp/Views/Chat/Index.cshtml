@@ -64,5 +64,28 @@
         </div>
     </div>
     <script src="@Url.Content("~/Content/app.js")"></script>
+    <script>
+        let currentContact = null;
+        let newMessageTpl = 
+            `<div>
+                <div id="msg-{{id}}" class="row __chat__par__">
+                    <div class="__chat__">
+                        <p>{{body}}</p>
+                        <p class="delivery-status">Delivered</p>
+                    </div>
+                </div>
+            </div>`;
+
+        $('.user_item').click(function (e) {
+            e.preventDefault();
+
+            currentContact = {
+                id: $this.data('contact-id'),
+                name: $this.data('contact-name'),
+            };
+        });
+            
+
+    </script>
 </body>
 </html>

@@ -47,9 +47,10 @@ namespace ChatApp
             app.UseMvc(routes =>
             {
                
-                routes.MapRoute(name: "", template: "ugly", defaults: new { controller = "Home", action = "Index" });
+                routes.MapRoute(name: "Home", template: "", defaults: new { controller = "Home", action = "Index" });
                 routes.MapRoute(name: "Login", template: "login", defaults: new { controller = "Authetication", action = "Login" });
                 routes.MapRoute(name: "ChatRoom", template: "chat", defaults: new { controller = "Chat", action = "Index" });
+                routes.MapRoute(name: "GetContactConversations", template: "contact/conversations/{contact}", defaults: new { controller = "Chat", action = "ConversationWithContact", contact = "" });
 
 
             });
