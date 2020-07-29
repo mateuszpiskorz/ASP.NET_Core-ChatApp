@@ -15,6 +15,7 @@ namespace ChatApp.Models
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Conversations> Conversations { get; set; }
 
     }
 }
