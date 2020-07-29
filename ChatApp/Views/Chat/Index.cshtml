@@ -1,35 +1,68 @@
 ﻿<!DOCTYPE html>
 <html>
-<title>pChat &mdash; Private Chatroom</title>
-<link rel="stylesheet" href="@Url.Content("~/Content/app.css")">
 <head>
-    <body>
-        <!--Nav Bar-->
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">pChat - @ViewBag.currentUser.name </a>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Log Out</a></li>
-                </ul>
+    <title>pChat &mdash; Private Chatroom</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/app.css")" />
+</head>
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">pChat - @ViewBag.currentUser.name</a>
             </div>
-        </nav>
-        <!--Nav Bar-->
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-3">
-                    <aside class="main visible-md visible-lg">
-                        <div class="row">
-                            <div class="col-xs-12">
-
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Navigation Bar-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <aside class="chat__main visible-md visible-lg">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class=" panel panel-default users__bar">
+                                <div class="panel-heading users__heading">
+                                    Conctacts (@ViewBag.allUsers.Count)
+                                </div>
+                                <div class="__no__chat__">
+                                    <p>Select contact to chat with</p>
+                                </div>
+                                <div class="panel-body users__body">
+                                    <ul id="contacts" class="list-group">
+                                        @foreach(var user in ViewBag.allUsers)
+                                        {
+                                            <a class="user__item contact-@user.id" href="#" data-contact-id="@user.id" data-contact-name="@user.name">
+                                                <li>
+                                                    <div class="avatar">
+                                                        <img src="@Url.Content("~/Content/no-avatar.png")" />
+                                                    </div>
+                                                    <span>@user.name</span>
+                                                    <div class="status-bar"></div>
+                                                </li>
+                                            </a>
+                                        }
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </aside>
+                    </div>
+                </aside>
+
+            </div>
+            <div class="chat__type__body">
+                <div class="chat__type">
+                    <textarea id="msg_box" placeholder="Type your message"></textarea>
+                    <button class="btn btn-primary" id="sendMessage">Send</button>
                 </div>
             </div>
+            <div class="chat__type">
+                <span id="typerDisplay"></span>
+            </div>
         </div>
-
-    </body>
-</head>
+    </div>
+    <script src="@Url.Content("~/Content/app.js")"></script>
+</body>
 </html>
