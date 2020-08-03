@@ -47,5 +47,29 @@ namespace ChatApp.Controllers
 
             return Json(new { status = "sucess", data = conversations });
         }
+
+        [HttpPost]
+        public IActionResult SendMessage()
+        {
+            if (SessionHelper.GetObjectFromJson<User>(HttpContext.Session, "user") == null)
+            {
+                return Json(new { status = "error", message = "User is not logged in" });
+            }
+
+            var currentUser = SessionHelper.GetObjectFromJson<User>(HttpContext.Session, "user");
+
+            string socketId = Request.Form["socketId"];
+
+            Conversations conv = new Conversations
+            {
+                SenderId = currentUser.Id,
+                Message = Request.Form["message"],
+                ReceiverId = Convert.ToInt32(Request.Form["contact"])
+            };
+
+            _context.Conversations.Add(conv);
+            _context.SaveChanges();
+            return Json(conv);
+        }
     }
 }

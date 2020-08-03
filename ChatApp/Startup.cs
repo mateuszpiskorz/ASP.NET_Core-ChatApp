@@ -44,6 +44,7 @@ namespace ChatApp
                 app.UseDeveloperExceptionPage();
             }
             app.UseSession();
+            app.UseStaticFiles();
             app.UseMvc(routes =>
             {
                
@@ -51,7 +52,7 @@ namespace ChatApp
                 routes.MapRoute(name: "Login", template: "login", defaults: new { controller = "Authetication", action = "Login" });
                 routes.MapRoute(name: "ChatRoom", template: "chat", defaults: new { controller = "Chat", action = "Index" });
                 routes.MapRoute(name: "GetContactConversations", template: "contact/conversations/{contact}", defaults: new { controller = "Chat", action = "ConversationWithContact", contact = "" });
-
+                routes.MapRoute(name: "SendMessage", template: "send_message", defaults: new { controller = "Chat", action = "SendMessage" });
 
             });
                    

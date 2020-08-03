@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="AppData\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
