@@ -18,11 +18,11 @@ namespace ChatApp.Models
         [Required(ErrorMessage =" Name field is required.")]
         [MinLength(3)]
         [MaxLength(40)]
-        [RegularExpression(@"^[A-Z]+")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Password is required.")]
         [MinLength(8)]
-        [RegularExpression()]
+        [RegularExpression(@"^(?=.*[A - Za - z])(?=.*\d)[A - Za - z\d]{8,}$")]
         public string Password { get; set; }
         public DateTime CreateTime { get; set; }
     }   
