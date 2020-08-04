@@ -27,6 +27,9 @@
             <div class="col-md-5 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <div class="text-center">
+                            <img class="img-thumbnail" width="150" height="150" src="@Url.Content("~/Content/no-avatar.png")" />
+                        </div>
                         <form action="/login" method="post" style="margin:0" autocomplete="off">
                             <div class="form-group">
                                 <input type="text" name="username" id="username" placeholder="Enter Username" class="form-control" required minlength="3" maxlength="15" />
@@ -35,7 +38,7 @@
                                 <input type="text" name="password" id="password" placeholder="Enter Password" class="form-control" required minlength="8" />
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Enter Chat</button>
-                            <a href="/login">Don't have an account? Get one!</a>
+                            <a href="/registration">Don't have an account? Get one!</a>
                         </form>
                     </div>
                 </div>

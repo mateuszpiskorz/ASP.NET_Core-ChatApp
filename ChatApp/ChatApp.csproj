@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="AppData\" />
-    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\no-avatar.png" />
   </ItemGroup>
 
   <ItemGroup>
