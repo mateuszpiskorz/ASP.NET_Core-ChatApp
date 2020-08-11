@@ -50,7 +50,7 @@ namespace ChatApp
                
                 routes.MapRoute(name: "Home", template: "", defaults: new { controller = "Home", action = "Index" });
                 routes.MapRoute(name: "Login", template: "login", defaults: new { controller = "Authetication", action = "Login" });
-                routes.MapRoute(name: "Registration", template: "registration", defaults: new { controller = "Reg", action = "Index" });
+                routes.MapRoute(name: "Registration", template: "registration", defaults: new { controller = "Reg", action = "Create" });
                 routes.MapRoute(name: "ChatRoom", template: "chat", defaults: new { controller = "Chat", action = "Index" });
                 routes.MapRoute(name: "GetContactConversations", template: "contact/conversations/{contact}", defaults: new { controller = "Chat", action = "ConversationWithContact", contact = "" });
                 routes.MapRoute(name: "SendMessage", template: "send_message", defaults: new { controller = "Chat", action = "SendMessage" });

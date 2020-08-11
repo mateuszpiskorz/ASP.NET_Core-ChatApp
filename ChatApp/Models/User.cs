@@ -20,6 +20,9 @@ namespace ChatApp.Models
         [MaxLength(40)]
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         public string Name { get; set; }
+
+       
+        public string Mail { get; set; }
         [Required(ErrorMessage = "Password is required.")]
         [MinLength(8)]
         [RegularExpression(@"^(?=.*[A - Za - z])(?=.*\d)[A - Za - z\d]{8,}$")]
