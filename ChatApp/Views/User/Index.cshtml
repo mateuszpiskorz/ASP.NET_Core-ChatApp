@@ -39,6 +39,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CreateTime)
             </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "User", new { id = item.Id })
+            </td>
         </tr>
 }
     </tbody>

@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Content\app.css" />
+    <None Include="wwwroot\Content\app.js" />
+    <None Include="wwwroot\Content\chat.js" />
     <None Include="wwwroot\Content\no-avatar.png" />
   </ItemGroup>
 

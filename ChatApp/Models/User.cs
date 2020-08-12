@@ -21,11 +21,11 @@ namespace ChatApp.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         public string Name { get; set; }
 
-       
+       [Required(ErrorMessage = "Email field is required.")]
         public string Mail { get; set; }
         [Required(ErrorMessage = "Password is required.")]
         [MinLength(8)]
-        [RegularExpression(@"^(?=.*[A - Za - z])(?=.*\d)[A - Za - z\d]{8,}$")]
+        //[RegularExpression(@"^(?=.*[A - Za - z])(?=.*\d)[A - Za - z\d]{8,}$")]
         public string Password { get; set; }
         public DateTime CreateTime { get; set; }
     }   

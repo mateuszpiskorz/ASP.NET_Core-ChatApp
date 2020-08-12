@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ChatApp.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace ChatApp.Controllers
 {
@@ -25,6 +26,32 @@ namespace ChatApp.Controllers
                         orderby u.Id
                         select u;
             return View(users);
+        }
+
+        
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var user = db.User.Single(m => m.Id == id);
+                db.User.Remove(user);
+                 db.SaveChanges();
+                // return RedirectToAction("Index");
+                return View();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return RedirectToAction("Index");
+            }
+            
+
+            
+        }
+        [HttpPost]
+        public IActionResult Delete()
+        {
+            return RedirectToAction("Index");
         }
     }
 }
