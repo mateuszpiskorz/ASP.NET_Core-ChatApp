@@ -47,7 +47,7 @@ namespace ChatApp
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-               
+                routes.MapRoute(name: "default", template: "{controller}/{action}/{id?}", defaults: new { controller = "Home", action = "Index" });
                 routes.MapRoute(name: "Home", template: "", defaults: new { controller = "Home", action = "Index" });
                 routes.MapRoute(name: "Login", template: "login", defaults: new { controller = "Authetication", action = "Login" });
                 routes.MapRoute(name: "Registration", template: "registration", defaults: new { controller = "Reg", action = "Create" });

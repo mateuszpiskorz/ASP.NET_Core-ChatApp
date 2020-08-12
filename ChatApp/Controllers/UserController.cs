@@ -35,9 +35,9 @@ namespace ChatApp.Controllers
             {
                 var user = db.User.Single(m => m.Id == id);
                 db.User.Remove(user);
-                 db.SaveChanges();
-                // return RedirectToAction("Index");
-                return View();
+                db.SaveChanges();
+                return RedirectToAction("Index");
+                
             }
             catch (Exception e)
             {
